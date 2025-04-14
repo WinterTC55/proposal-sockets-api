@@ -209,7 +209,7 @@ Cancelling the socket's ReadableStream and closing the socket's WritableStream d
 
 <h4 id="upgraded-attribute">upgraded</h4>
 
-The {{upgraded}} attribute is a boolean flag that indicates whether the socket has been upgraded to a secure connection.
+The {{upgraded}} attribute is a boolean flag that indicates whether the socket has been upgraded to a secure connection (using `startTLS()`).
 
 <h3 id="methods">Methods</h3>
 
