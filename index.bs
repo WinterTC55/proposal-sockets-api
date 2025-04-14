@@ -111,6 +111,8 @@ interface Socket {
   readonly attribute Promise&lt;undefined> closed;
   Promise&lt;undefined> close(optional any reason);
 
+  readonly attribute boolean upgraded;
+
   [NewObject] Socket startTls();
 };
 </pre>
@@ -205,6 +207,10 @@ It can also be rejected with a [=SocketError=] when a socket connection could no
 
 Cancelling the socket's ReadableStream and closing the socket's WritableStream does not resolve the `closed` promise.
 
+<h4 id="upgraded-attribute">upgraded</h4>
+
+The {{upgraded}} attribute is a boolean flag that indicates whether the socket has been upgraded to a secure connection (using `startTLS()`).
+
 <h3 id="methods">Methods</h3>
 
 <h4 id="close-method">close(optional any reason)</h4>
@@ -224,6 +230,7 @@ The {{startTls()}} method enables opportunistic TLS (otherwise known as [StartTL
 In this `secureTransport` mode of operation the socket begins the connection in plain-text, with messages read and written without any encryption. Then once the `startTls` method is called on the socket, the following shall take place:
 
 <ul>
+  <li>the original socket "upgraded" attribute is set to true</li>
   <li>the original socket is closed, though the original connection is kept alive</li>
   <li>a secure TLS connection is established over that connection</li>
   <li>a new socket is created and returned from the `startTls` call</li>
@@ -377,7 +384,7 @@ At any point during the creation of the {{Socket}} instance, `connect` may throw
     {{alpn}} property
   </dt>
   <dd>
-    If the server agrees with one of the protocols specified in the `alpn` negotiation list, returns that protocol name as a string, otherwise `null`. 
+    If the server agrees with one of the protocols specified in the `alpn` negotiation list, returns that protocol name as a string, otherwise `null`.
   </dd>
 </dl>
 
