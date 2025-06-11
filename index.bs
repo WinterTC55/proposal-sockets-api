@@ -1,11 +1,10 @@
 <pre class=metadata>
 Title: Sockets API
-Shortname: common-web-platform-api
-Group: wintercg
-Status: w3c/CG-DRAFT
-Level: none
+Shortname: sockets-api
+Group: wintertc
+Status: DRAFT
 URL: https://sockets-api.proposal.wintertc.org/
-Repository: https://github.com/wintercg/proposal-sockets-api
+Repository: https://github.com/WinterTC55/proposal-sockets-api
 Editor: Dominik Picheta, Cloudflare https://cloudflare.com/, dominik@cloudflare.com
 Editor: Ethan Arrowood, ethan@arrowood.dev
 Editor: James M Snell, Cloudflare https://cloudflare.com/, jsnell@cloudflare.com
